@@ -1,5 +1,7 @@
 FROM php:7.2.5-apache
 RUN apt-get update && apt-get install -y \
+	wget \
+	git \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
@@ -20,4 +22,5 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN apt-get install libxrender1 -y
 RUN apt-get install libfontconfig1 -y
 RUN apt-get install libxtst6 -y
+RUN wget https://get.symfony.com/cli/installer -O - | bash && mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 COPY php.ini /usr/local/etc/php/
