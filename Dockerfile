@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install -j$(nproc) exif \
     && docker-php-ext-install -j$(nproc) fileinfo \
-    && docker-php-ext-install -j$(nproc) intl
+    && docker-php-ext-install -j$(nproc) intl \
+    && docker-php-ext-install zip
 RUN apt-get install zip -y
 RUN curl https://phar.phpunit.de/phpunit.phar --output phpunit.phar -L
 RUN chmod +x phpunit.phar
